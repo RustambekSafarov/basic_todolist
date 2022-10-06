@@ -11,13 +11,17 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
+  TextEditingController txt = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          TextField(),
+          TextField(
+            decoration: InputDecoration(label: Text('add task')),
+            controller: txt,
+          ),
           Expanded(
             child: ListView.builder(
                 itemCount: 2,
