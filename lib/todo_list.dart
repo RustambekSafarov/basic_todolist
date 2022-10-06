@@ -11,6 +11,7 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
+  List<String> tasks = [];
   TextEditingController txt = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,13 @@ class _TodoListState extends State<TodoList> {
               minimumSize: Size.fromHeight(50),
             ),
             child: Text('ADD'),
-            onPressed: () {},
+            onPressed: () {
+              if (!txt.text.isEmpty) {
+                tasks.add(txt.text);
+              }
+              txt.text = '';
+              print(tasks);
+            },
           )
         ],
       ),
