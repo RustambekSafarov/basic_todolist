@@ -30,7 +30,9 @@ class _TodoListState extends State<TodoList> {
                   return ListTile(
                     title: Text(tasks[index]),
                     onTap: () {
-                      print(index);
+                      setState(() {
+                        tasks.removeAt(index);
+                      });
                     },
                   );
                 })),
