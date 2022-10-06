@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
@@ -12,6 +13,27 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          TextField(),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 2,
+                itemBuilder: ((context, index) {
+                  return ListTile(title: Text('Item'));
+                })),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size.fromHeight(50),
+            ),
+            child: Text('ADD'),
+            onPressed: () {},
+          )
+        ],
+      ),
+    );
   }
 }
