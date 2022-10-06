@@ -25,9 +25,9 @@ class _TodoListState extends State<TodoList> {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 2,
+                itemCount: tasks.length,
                 itemBuilder: ((context, index) {
-                  return ListTile(title: Text('Item'));
+                  return ListTile(title: Text(tasks[index]));
                 })),
           ),
           ElevatedButton(
@@ -37,10 +37,11 @@ class _TodoListState extends State<TodoList> {
             child: Text('ADD'),
             onPressed: () {
               if (!txt.text.isEmpty) {
-                tasks.add(txt.text);
+                setState(() {
+                  tasks.add(txt.text);
+                });
               }
               txt.text = '';
-              print(tasks);
             },
           )
         ],
