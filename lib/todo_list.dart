@@ -27,7 +27,12 @@ class _TodoListState extends State<TodoList> {
             child: ListView.builder(
                 itemCount: tasks.length,
                 itemBuilder: ((context, index) {
-                  return ListTile(title: Text(tasks[index]));
+                  return ListTile(
+                    title: Text(tasks[index]),
+                    onTap: () {
+                      print(index);
+                    },
+                  );
                 })),
           ),
           ElevatedButton(
