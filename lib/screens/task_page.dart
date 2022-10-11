@@ -12,12 +12,13 @@ class TaskPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.keyboard_arrow_left),
+            onPressed: () => Navigator.pop(context),
+          ),
           title: Text(title),
         ),
-        body: ElevatedButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('BACK'),
-        ),
+        body: Container(),
       ),
     );
   }
