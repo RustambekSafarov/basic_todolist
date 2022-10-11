@@ -1,4 +1,5 @@
 import 'package:basic_todolist/screens/task_page.dart';
+import 'package:basic_todolist/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,7 +13,8 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
-  List<String> tasks = [];
+  List<Todo> tasks = [];
+
   TextEditingController txt = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -29,13 +31,13 @@ class _TodoListState extends State<TodoList> {
                 itemCount: tasks.length,
                 itemBuilder: ((context, index) {
                   return ListTile(
-                    title: Text(tasks[index]),
+                    title: Text(tasks[index].title),
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => TaskPage(
-                              title: 'TASK $index',
+                              task: tasks[index],
                             ),
                           ));
                     },
@@ -50,7 +52,7 @@ class _TodoListState extends State<TodoList> {
             onPressed: () {
               if (!txt.text.isEmpty) {
                 setState(() {
-                  tasks.add(txt.text);
+                  tasks.add(Todo(txt.text, 'description: ${txt.text}:'));
                 });
               }
               txt.text = '';

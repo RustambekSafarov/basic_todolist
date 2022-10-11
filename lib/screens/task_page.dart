@@ -1,10 +1,11 @@
+import 'package:basic_todolist/todo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TaskPage extends StatelessWidget {
-  String title = '';
-  TaskPage({Key? key, this.title = 'BOSH'}) : super(key: key);
+  final Todo task;
+  TaskPage({Key? key, required this.task}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,11 @@ class TaskPage extends StatelessWidget {
             icon: Icon(Icons.keyboard_arrow_left),
             onPressed: () => Navigator.pop(context),
           ),
-          title: Text(title),
+          title: Text(task.title),
         ),
-        body: Container(),
+        body: Container(
+          child: Text(task.description),
+        ),
       ),
     );
   }
