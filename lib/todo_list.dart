@@ -1,3 +1,4 @@
+import 'package:basic_todolist/screens/task_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -30,9 +31,13 @@ class _TodoListState extends State<TodoList> {
                   return ListTile(
                     title: Text(tasks[index]),
                     onTap: () {
-                      setState(() {
-                        tasks.removeAt(index);
-                      });
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TaskPage(
+                              title: 'TASK99',
+                            ),
+                          ));
                     },
                   );
                 })),
