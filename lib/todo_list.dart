@@ -35,7 +35,7 @@ class _TodoListState extends State<TodoList> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => TaskPage(
-                              title: 'TASK99',
+                              title: 'TASK $index',
                             ),
                           ));
                     },
